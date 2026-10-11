@@ -56,3 +56,9 @@ class Lesson:
 
     def __repr__(self):
         return f"Lesson({self.subject.title} - {self.group.name})"
+
+class ScheduleAssignment:
+    def __init__(self, lesson, timeslot, room):
+        self.lesson = lesson
+        self.timeslot = timeslot
+        self.room = room

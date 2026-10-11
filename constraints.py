@@ -1,16 +1,9 @@
-class ScheduleAssignment:
-    def __init__(self, lesson, timeslot, room):
-        self.lesson = lesson
-        self.timeslot = timeslot
-        self.room = room
-
-
 class ConstraintEvaluator:
     def __init__(self, hard_penalty_weight: int = 1000, soft_penalty_weight: int = 1):
         self.hard_penalty_weight = hard_penalty_weight
         self.soft_penalty_weight = soft_penalty_weight
 
-    def evaluate(self, assignments: list[ScheduleAssignment]) -> tuple[int, int, float]:
+    def evaluate(self, assignments) -> tuple[int, int, float]:
         hard_penalties = 0
         soft_penalties = 0
 
@@ -45,7 +38,7 @@ class ConstraintEvaluator:
 
         return hard_penalties, soft_penalties, fitness_score
 
-    def _count_windows_and_overload(self, assignments: list[ScheduleAssignment]) -> int:
+    def _count_windows_and_overload(self, assignments) -> int:
         soft_penalties = 0
         schedule_by_group = {}
 
